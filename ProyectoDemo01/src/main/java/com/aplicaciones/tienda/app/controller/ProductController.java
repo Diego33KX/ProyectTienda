@@ -44,6 +44,26 @@ public class ProductController {
 		}
 		return ResponseEntity.ok(oProduct);
 	}
+	//READ BY CATEGORY
+	@GetMapping("/categoria/{categoriaid}")
+	public ResponseEntity<?> readbycategory(@PathVariable(value="categoriaid") int categoriaP){
+		List<Product> catProd = productService.findByCategoriaId(categoriaP);
+		
+		if(catProd.size()==0) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(catProd);
+	}
+	//READ BY PAIS
+	@GetMapping("/pais/{paisid}")
+	public ResponseEntity<?> readbycountry(@PathVariable(value="paisid") int paisP){
+		List<Product> paisProd= productService.findByPaisId(paisP);
+		
+		if(paisProd.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(paisProd);
+	}
 	
 	//UPDATE AN PRODUCT
 	@PutMapping("/{id}")
@@ -55,8 +75,8 @@ public class ProductController {
 		}
 		//BeanUtils.copyProperties(productDetail, product.get());
 		product.get().setNombre(productDetail.getNombre());
-		product.get().setCategoria_id(productDetail.getCategoria_id());
-		product.get().setPais_id(productDetail.getPais_id());
+		product.get().setCategoriaId(productDetail.getCategoriaId());
+		product.get().setPaisId(productDetail.getPaisId());
 		product.get().setPrecio(productDetail.getPrecio());
 		product.get().setStock(productDetail.getStock());
 		product.get().setMarca(productDetail.getMarca());
@@ -64,7 +84,7 @@ public class ProductController {
 		product.get().setGenero(productDetail.getGenero());
 		product.get().setImg_delante(productDetail.getImg_delante());
 		product.get().setImg_atras(productDetail.getImg_atras());
-		product.get().setImg_costado(productDetail.getImg_costado());
+		product.get().setCantidad(productDetail.getCantidad());
 		product.get().setDescripcion(productDetail.getDescripcion());
 		product.get().setPub_date(productDetail.getPub_date());
 		

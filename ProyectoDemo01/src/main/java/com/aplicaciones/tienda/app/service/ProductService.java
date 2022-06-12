@@ -1,5 +1,6 @@
 package com.aplicaciones.tienda.app.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -18,4 +19,8 @@ public interface ProductService {
 	public Product save(Product product);
 	//Borrar
 	public void deleteById(Long id);
+	
+	public List<Product> findByCategoriaId(int categoriaId);
+	
+	public List<Product> findByPaisId(int paisId);
 }

@@ -1,5 +1,7 @@
 package com.aplicaciones.tienda.app.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,4 +30,11 @@ public class CategoryServiceImplement implements CategoryService {
 		return categoryRepository.save(category);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Category> findById(Long id) {
+		return categoryRepository.findById(id);
+	}
+	
+	
 }

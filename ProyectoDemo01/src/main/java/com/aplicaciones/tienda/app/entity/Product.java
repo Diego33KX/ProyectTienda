@@ -24,9 +24,10 @@ public class Product{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
-	
-	private Long categoria_id;
-	private Long pais_id;
+	@Column(name="categoria_id")
+	private int categoriaId;
+	@Column(name="pais_id")
+	private int paisId;
 	
 	
 	private double precio;
@@ -42,7 +43,7 @@ public class Product{
 	
 	private String img_atras;
 	
-	private String img_costado;
+	private int cantidad;
 	
 	private String descripcion;
 	
@@ -124,12 +125,14 @@ public class Product{
 		this.img_atras = img_atras;
 	}
 
-	public String getImg_costado() {
-		return img_costado;
+	
+
+	public int getCantidad() {
+		return cantidad;
 	}
 
-	public void setImg_costado(String img_costado) {
-		this.img_costado = img_costado;
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	public String getDescripcion() {
@@ -148,20 +151,24 @@ public class Product{
 		this.pub_date = pub_date;
 	}
 
-	public Long getCategoria_id() {
-		return categoria_id;
+	
+
+	public int getCategoriaId() {
+		return categoriaId;
 	}
 
-	public void setCategoria_id(Long categoria_id) {
-		this.categoria_id = categoria_id;
+	public void setCategoriaId(int categoriaId) {
+		this.categoriaId = categoriaId;
 	}
 
-	public Long getPais_id() {
-		return pais_id;
+	public int getPaisId() {
+		return paisId;
 	}
 
-	public void setPais_id(Long pais_id) {
-		this.pais_id = pais_id;
+	public void setPaisId(int paisId) {
+		this.paisId = paisId;
 	}
+
+	
 
 }

@@ -1,5 +1,6 @@
 package com.aplicaciones.tienda.app.service;
-
+import org.slf4j.Logger;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.aplicaciones.tienda.app.entity.Product;
 import com.aplicaciones.tienda.app.repository.ProductRepository;
-
+import org.slf4j.LoggerFactory;
 @Service
 public class ProductServiceImplement implements ProductService{
-
+	
 	//INYECCIÓN DE DEPENDENCIA
 	@Autowired
 	private ProductRepository productRepository;
@@ -37,6 +38,7 @@ public class ProductServiceImplement implements ProductService{
 		
 		return productRepository.findById(id);
 	}
+	
 	//REGISTRA
 	@Override
 	@Transactional
@@ -50,6 +52,19 @@ public class ProductServiceImplement implements ProductService{
 	public void deleteById(Long id) {
 		productRepository.deleteById(id);
 		
+	}
+	//BUSCAR POR CATEGORIA
+	
+	@Override
+	public List<Product> findByCategoriaId(int categoriaId) {
+		
+		return productRepository.findByCategoriaId(categoriaId);
+	}
+	//BUSCAR POR PAIS
+	@Override
+	public List<Product> findByPaisId(int paisId) {
+		
+		return productRepository.findByPaisId(paisId);
 	}
 
 }

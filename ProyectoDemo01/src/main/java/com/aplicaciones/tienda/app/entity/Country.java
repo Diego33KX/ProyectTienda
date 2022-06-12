@@ -26,6 +26,8 @@ public class Country{
 
 	private Date pub_date;
 	
+	private String img;
+	
 	public Long getId() {
 		return id;
 	}
@@ -48,6 +50,14 @@ public class Country{
 
 	public void setPub_date(Date pub_date) {
 		this.pub_date = pub_date;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 	

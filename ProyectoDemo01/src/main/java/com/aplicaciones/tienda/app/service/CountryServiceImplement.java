@@ -1,5 +1,7 @@
 package com.aplicaciones.tienda.app.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,13 @@ public class CountryServiceImplement implements CountryService {
 	public Country save(Country country) {
 		
 		return countryRepository.save(country);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Country> findById(Long id) {
+		
+		return countryRepository.findById(id);
 	}
 	
 }
