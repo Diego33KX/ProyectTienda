@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aplicaciones.tienda.app.entity.Product;
 import com.aplicaciones.tienda.app.service.ProductService;
 
-@RestController
+@RestController 
+
 @RequestMapping("/api/products")
 public class ProductController {
 	//INYECCIÓN DE DEPENDENCIAS
