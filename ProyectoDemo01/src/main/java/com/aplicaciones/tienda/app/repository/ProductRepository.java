@@ -11,4 +11,5 @@ import com.aplicaciones.tienda.app.entity.Product;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	List<Product> findByCategoriaId(int categoriaId);
 	List<Product> findByPaisId(int paisId);
+	public abstract Product findByNombre(String nombre);
 }

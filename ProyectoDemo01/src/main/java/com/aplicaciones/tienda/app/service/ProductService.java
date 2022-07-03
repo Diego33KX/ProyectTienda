@@ -23,4 +23,6 @@ public interface ProductService {
 	public List<Product> findByCategoriaId(int categoriaId);
 	
 	public List<Product> findByPaisId(int paisId);
+	
+	public abstract Product findByNombre(String nombre);
 }

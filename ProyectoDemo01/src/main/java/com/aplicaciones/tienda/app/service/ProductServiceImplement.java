@@ -66,5 +66,11 @@ public class ProductServiceImplement implements ProductService{
 		
 		return productRepository.findByPaisId(paisId);
 	}
+	//HACE BUSQUEDA POR NOMBRE DEL PRODUCTO
+	@Override
+	public Product findByNombre(String nombre) {
+		
+		return productRepository.findByNombre(nombre);
+	}
 
 }
